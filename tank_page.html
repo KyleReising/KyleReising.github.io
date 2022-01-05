@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Kyle Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Kyle Reising</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="doom2_page.html">Doom 2</a></li>
+							<li><a href="tank_page.html">Tank Game</a></li>
+							<li><a href="blue_man.html">Untitled Roguelite</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Tank Game</h1>
+							<span class="image main"><img src="images/tank_game.gif" alt="" /></span>
+							<p><b>Engine:</b> Unity</p>
+							<p><b>Role:</b> Solo Developer</p>
+							<p>
+								<b>Development Description:</b> I created this game alone. Art was imported or simple shapes but; mechanics, movement, animation, sound, particle effects, UI, and AI were done by me. This was a school project and the first time I had used Unreal.</p>
+							</p>
+							<p>
+								<b>Game Description: </b> Shoot the other tank in the arena without dying. 
+							</p>
+							<b> Enemy AI code snippet </b>
+							<pre><code>
+void Update()
+{								
+	if(alive) 
+	{
+		//get sight vector to player & set navmesh agent
+		Vector3 sight = player.transform.position - transform.position;
+		nav_mesh_agent = GetComponent<NavMeshAgent>();
+
+		// if in range start moving and firing
+		if (sight.magnitude < vis_distance)
+		{
+			nav_mesh_agent.destination = move_pos_transform.position;
+			transform.rotation = transform.rotation * Quaternion.Euler(-90, 0.01f, 0.01f);
+			//fire shot
+			if (fire_cd <= 0)
+			{
+				Quaternion brot = transform.rotation * Quaternion.AngleAxis(180, Vector3.up);
+				GameObject temp = Instantiate(bullet_prefab, transform.position, brot);
+				temp.tag = "enemy_bullet";
+				fire_cd = set_fire_cd;
+			}
+			else
+				fire_cd -= 2;
+		}
+	}
+}
+							</code></pre>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<p>
+										Phone: 330-322-8177<br>
+										Email: kreising.professional@gmail.com<br>
+										Discord: PattyTime#9497<br>
+										<a href="https://docs.google.com/document/d/13VP3TzCPz8QLUJwAo-7t75Bdl2XjTFye/edit?usp=sharing&ouid=101455608582685375397&rtpof=true&sd=true">Resume Link </a><br>
+									</p>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
