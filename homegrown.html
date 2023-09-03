@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Kyle Portfolio</title>
+		<title>Kyle Reising</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -21,7 +21,7 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
+								<a href="index.html" class="logo" >
 									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Kyle Reising</span>
 								</a>
 
@@ -40,9 +40,9 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
+							<li><a href="olympus_page.html">The Olympus Trials</a></li>
 							<li><a href="doom2_page.html">Doom 2</a></li>
-							<li><a href="tank_page.html">Tank Game</a></li>
-							<li><a href="blue_man.html">Untitled Roguelite</a></li>
+							<li><a href="homegrown.html">Homegrown</a></li>
 							<li><a href="rat_page.html">R.A.T.</a></li>
 						</ul>
 					</nav>
@@ -50,52 +50,27 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Tank Game</h1>
-							<span class="image main"><img src="images/tank_game.gif" alt="" /></span>
-							<p><b>Engine:</b> Unity</p>
-							<p><b>Role:</b> Solo Developer</p>
+							<h1>Unnamed Roguelite </h1>
+							<span class="image main"><img src="images/homegrown.png" alt="" /></span>
+							<p><b>Engine:</b> Unreal</p>
+							<p><b>Role:</b> Core Gameplay & UI</p>
 							<p>
-								<b>Development Description:</b> I created this game alone. Art was imported or simple shapes but mechanics, movement, animation, sound, particle effects, UI, and AI were done by me.</p>
+								<b>Development Description:</b> This project was completed by 4 people, including myself, over 2 days. My work focused on the UI, namely the market, inventory, and their related code.
+								
+							
+							</p>
 							</p>
 							<p>
-								<b>Game Description: </b> Shoot the other tank in the arena without dying. 
+								<b>Game Description:</b> Grow plants and place defenses in a game where Plants v zombies meets Cookie Clicker!
 							</p>
-							<b> Enemy AI code snippet </b>
-							<pre><code>
-void Update()
-{								
-	if(alive) 
-	{
-		//get sight vector to player & set navmesh agent
-		Vector3 sight = player.transform.position - transform.position;
-		nav_mesh_agent = GetComponent<NavMeshAgent>();
-
-		// if in range start moving and firing
-		if (sight.magnitude < vis_distance)
-		{
-			nav_mesh_agent.destination = move_pos_transform.position;
-			transform.rotation = transform.rotation * Quaternion.Euler(-90, 0.01f, 0.01f);
-			//fire shot
-			if (fire_cd <= 0)
-			{
-				Quaternion brot = transform.rotation * Quaternion.AngleAxis(180, Vector3.up);
-				GameObject temp = Instantiate(bullet_prefab, transform.position, brot);
-				temp.tag = "enemy_bullet";
-				fire_cd = set_fire_cd;
-			}
-			else
-				fire_cd -= 2;
-		}
-	}
-}
-							</code></pre>
+							<b>Play it: </b><a href="https://zahavi.itch.io/homegrown">Here </a>
+							 
 						</div>
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
-							
 							<section>
 								<h2>Contact Me</h2>
 								<ul class="icons">
